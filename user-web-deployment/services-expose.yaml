@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-02-10T16:28:04Z"
+  labels:
+    app: user-web
+  name: user-web
+  namespace: default
+  resourceVersion: "34062"
+  uid: ecc758e1-cc3c-4368-9fdb-3b91d4d8fb8e
+spec:
+  clusterIP: 10.100.215.15
+  clusterIPs:
+  - 10.100.215.15
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 32193
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: user-web
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
